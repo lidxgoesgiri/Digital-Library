@@ -1,0 +1,726 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-navy-900: #060820;
+        --color-navy-800: #0a0e30;
+        --color-navy-700: #0d1240;
+        --color-purple-600: #9333ea;
+        --color-purple-500: #a855f7;
+        /* Light mode colors */
+        --color-light-bg: #f8fafc;
+        --color-light-card: #ffffff;
+        --color-light-text: #1e293b;
+        --color-light-text-secondary: #64748b;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Dark mode (default) */
+    body {
+        @apply bg-navy-900 text-white;
+        overflow-x: hidden;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Light mode */
+    body.light {
+        @apply bg-slate-50 text-slate-800;
+    }
+
+    /* Light mode background override */
+    body.light .bg-navy-900 {
+        @apply bg-slate-50;
+    }
+
+    body.light .bg-navy-800 {
+        @apply bg-slate-100;
+    }
+
+    body.light .bg-navy-700 {
+        @apply bg-slate-200;
+    }
+
+    ::selection {
+        @apply bg-purple-500/30 text-white;
+    }
+
+    .light ::selection {
+        @apply bg-purple-500/30 text-slate-900;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-navy-900;
+    }
+
+    .light ::-webkit-scrollbar-track {
+        @apply bg-slate-200;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-gradient-to-b from-purple-600 to-indigo-600 rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply from-purple-500 to-indigo-500;
+    }
+}
+
+@layer components {
+    /* Glass Effect - Dark Mode */
+    .glass {
+        @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
+    }
+
+    .glass-dark {
+        @apply bg-navy-800/80 backdrop-blur-xl border border-white/5 shadow-2xl;
+    }
+
+    .glass-card {
+        @apply bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl;
+    }
+
+    /* Light Mode Glass Effects */
+    .light .glass {
+        @apply bg-white/80 backdrop-blur-xl border border-slate-200 shadow-lg;
+    }
+
+    .light .glass-dark {
+        @apply bg-white/90 backdrop-blur-xl border border-slate-200 shadow-lg;
+    }
+
+    .light .glass-card {
+        @apply bg-white/90 backdrop-blur-xl border border-slate-200 rounded-2xl shadow-lg;
+    }
+
+    /* Gradient Backgrounds */
+    .bg-mesh {
+        background: 
+            radial-gradient(at 40% 20%, rgba(99, 102, 241, 0.3) 0px, transparent 50%),
+            radial-gradient(at 80% 0%, rgba(168, 85, 247, 0.2) 0px, transparent 50%),
+            radial-gradient(at 0% 50%, rgba(99, 102, 241, 0.2) 0px, transparent 50%),
+            radial-gradient(at 80% 50%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+            radial-gradient(at 0% 100%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+            radial-gradient(at 80% 100%, rgba(168, 85, 247, 0.1) 0px, transparent 50%);
+    }
+
+    .gradient-text {
+        @apply bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
+    }
+
+    .gradient-text-animated {
+        background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899, #a855f7, #6366f1);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradient 3s linear infinite;
+    }
+
+    /* Light Mode Background Mesh */
+    .light .bg-mesh {
+        background: 
+            radial-gradient(at 40% 20%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+            radial-gradient(at 80% 0%, rgba(168, 85, 247, 0.1) 0px, transparent 50%),
+            radial-gradient(at 0% 50%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+            radial-gradient(at 80% 50%, rgba(168, 85, 247, 0.08) 0px, transparent 50%);
+    }
+
+    /* Light Mode Text Colors */
+    .light .text-white {
+        @apply text-slate-800;
+    }
+
+    .light .text-white\/90 {
+        @apply text-slate-800;
+    }
+
+    .light .text-white\/70,
+    .light .text-white\/60,
+    .light .text-white\/50 {
+        @apply text-slate-600;
+    }
+
+    .light .text-white\/40,
+    .light .text-white\/30,
+    .light .text-white\/20 {
+        @apply text-slate-500;
+    }
+
+    .light .text-white\/80 {
+        @apply text-slate-700;
+    }
+
+    /* Light Mode Borders */
+    .light .border-white\/10,
+    .light .border-white\/20,
+    .light .border-white\/5 {
+        @apply border-slate-200;
+    }
+
+    /* Light Mode Background Opacity */
+    .light .bg-white\/5,
+    .light .bg-white\/10 {
+        @apply bg-slate-100;
+    }
+
+    .light .bg-white\/20 {
+        @apply bg-slate-200;
+    }
+
+    /* Light Mode Hover */
+    .light .hover\:bg-white\/10:hover {
+        @apply bg-slate-200;
+    }
+
+    .light .hover\:bg-white\/5:hover {
+        @apply bg-slate-100;
+    }
+
+    /* Light Mode Orbs and Particles */
+    .light .orb {
+        @apply opacity-10;
+    }
+
+    .light .particle {
+        @apply bg-purple-500/10;
+    }
+
+    /* Buttons */
+    .btn-primary {
+        @apply relative overflow-hidden px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl font-semibold text-white shadow-lg shadow-purple-500/30 transition-all duration-300;
+    }
+
+    .btn-primary:hover {
+        @apply shadow-xl shadow-purple-500/50 scale-105;
+        background: linear-gradient(90deg, #4f46e5, #9333ea, #4f46e5);
+        background-size: 200% auto;
+        animation: gradient 2s linear infinite;
+    }
+
+    .btn-primary::before {
+        content: '';
+        @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full;
+        transition: transform 0.5s;
+    }
+
+    .btn-primary:hover::before {
+        @apply translate-x-full;
+    }
+
+    .btn-secondary {
+        @apply px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl font-semibold text-white transition-all duration-300;
+    }
+
+    .btn-secondary:hover {
+        @apply bg-white/20 border-white/40 scale-105 shadow-lg shadow-white/10;
+    }
+
+    /* Light Mode Buttons */
+    .light .btn-secondary {
+        @apply bg-slate-100 border-slate-300 text-slate-700;
+    }
+
+    .light .btn-secondary:hover {
+        @apply bg-slate-200 border-slate-400 shadow-lg shadow-slate-200;
+    }
+
+    .btn-glow {
+        @apply relative px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl font-semibold text-white;
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.5), 0 0 40px rgba(168, 85, 247, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .btn-glow:hover {
+        box-shadow: 0 0 30px rgba(99, 102, 241, 0.7), 0 0 60px rgba(168, 85, 247, 0.5), 0 0 80px rgba(168, 85, 247, 0.3);
+        transform: translateY(-2px);
+    }
+
+    /* Cards */
+    .card-hover {
+        @apply transition-all duration-500 ease-out;
+    }
+
+    .card-hover:hover {
+        @apply -translate-y-2 shadow-2xl shadow-purple-500/20;
+    }
+
+    .card-3d {
+        transform-style: preserve-3d;
+        transition: transform 0.5s ease;
+    }
+
+    .card-3d:hover {
+        transform: perspective(1000px) rotateY(5deg) rotateX(5deg) scale(1.02);
+    }
+
+    /* Input Fields */
+    .input-glass {
+        @apply w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300;
+    }
+
+    .input-glass:focus {
+        @apply bg-white/10;
+        box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+    }
+
+    /* Light Mode Input */
+    .light .input-glass {
+        @apply bg-white border-slate-300 text-slate-800 placeholder-slate-400;
+    }
+
+    .light .input-glass:focus {
+        @apply bg-white border-purple-500 ring-purple-500/20;
+        box-shadow: 0 0 20px rgba(168, 85, 247, 0.1);
+    }
+
+    /* Select Dropdown */
+    select.input-glass,
+    select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23a855f7' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.75rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+    }
+
+    select option {
+        background-color: #0a0e30;
+        color: white;
+        padding: 10px;
+    }
+
+    select option:hover,
+    select option:focus,
+    select option:checked {
+        background-color: #1e1b4b;
+        color: white;
+    }
+
+    /* Floating Particles */
+    .particle {
+        @apply absolute rounded-full pointer-events-none;
+        animation: float 6s ease-in-out infinite;
+    }
+
+    /* Glow Effects */
+    .glow-purple {
+        box-shadow: 0 0 20px rgba(168, 85, 247, 0.4), 0 0 40px rgba(168, 85, 247, 0.2);
+    }
+
+    .glow-indigo {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.4), 0 0 40px rgba(99, 102, 241, 0.2);
+    }
+
+    .text-glow {
+        text-shadow: 0 0 10px rgba(168, 85, 247, 0.5), 0 0 20px rgba(99, 102, 241, 0.3);
+    }
+
+    /* Navigation */
+    .nav-link {
+        @apply relative px-4 py-2 text-white/70 font-medium transition-all duration-300;
+    }
+
+    .nav-link::after {
+        content: '';
+        @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300;
+    }
+
+    .nav-link:hover {
+        @apply text-white;
+    }
+
+    .nav-link:hover::after {
+        @apply w-full;
+    }
+
+    .nav-link.active {
+        @apply text-white;
+    }
+
+    .nav-link.active::after {
+        @apply w-full;
+    }
+
+    /* Light Mode Navigation */
+    .light .nav-link {
+        @apply text-slate-600;
+    }
+
+    .light .nav-link:hover {
+        @apply text-slate-900;
+    }
+
+    .light .nav-link.active {
+        @apply text-slate-900;
+    }
+
+    /* Tables */
+    .table-glass {
+        @apply w-full border-collapse;
+    }
+
+    .table-glass thead {
+        @apply bg-white/5;
+    }
+
+    .table-glass th {
+        @apply px-6 py-4 text-left text-xs font-semibold text-purple-300 uppercase tracking-wider;
+    }
+
+    .table-glass tbody tr {
+        @apply border-b border-white/5 transition-all duration-300;
+    }
+
+    .table-glass tbody tr:hover {
+        @apply bg-white/5;
+    }
+
+    .table-glass td {
+        @apply px-6 py-4 text-white/80;
+    }
+
+    /* Light Mode Tables */
+    .light .table-glass thead {
+        @apply bg-slate-100;
+    }
+
+    .light .table-glass th {
+        @apply text-purple-700;
+    }
+
+    .light .table-glass tbody tr {
+        @apply border-b border-slate-200;
+    }
+
+    .light .table-glass tbody tr:hover {
+        @apply bg-slate-50;
+    }
+
+    .light .table-glass td {
+        @apply text-slate-700;
+    }
+
+    /* Badge */
+    .badge {
+        @apply px-3 py-1 text-xs font-semibold rounded-full;
+    }
+
+    .badge-success {
+        @apply bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
+    }
+
+    .badge-warning {
+        @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+    }
+
+    .badge-danger {
+        @apply bg-red-500/20 text-red-400 border border-red-500/30;
+    }
+
+    .badge-info {
+        @apply bg-indigo-500/20 text-indigo-400 border border-indigo-500/30;
+    }
+
+    /* Light Mode Badges */
+    .light .badge-success {
+        @apply bg-emerald-100 text-emerald-700 border-emerald-300;
+    }
+
+    .light .badge-warning {
+        @apply bg-yellow-100 text-yellow-700 border-yellow-300;
+    }
+
+    .light .badge-danger {
+        @apply bg-red-100 text-red-700 border-red-300;
+    }
+
+    .light .badge-info {
+        @apply bg-indigo-100 text-indigo-700 border-indigo-300;
+    }
+
+    /* Animated Background Orbs */
+    .orb {
+        @apply absolute rounded-full blur-3xl opacity-30 pointer-events-none;
+        animation: float 10s ease-in-out infinite;
+    }
+
+    .orb-1 {
+        @apply w-96 h-96 bg-purple-600 -top-48 -left-48;
+        animation-delay: 0s;
+    }
+
+    .orb-2 {
+        @apply w-80 h-80 bg-indigo-600 top-1/2 -right-40;
+        animation-delay: -2s;
+    }
+
+    .orb-3 {
+        @apply w-72 h-72 bg-pink-600 -bottom-36 left-1/4;
+        animation-delay: -4s;
+    }
+
+    /* Stats Card */
+    .stat-card {
+        @apply relative overflow-hidden glass-card p-6 transition-all duration-500;
+    }
+
+    .stat-card::before {
+        content: '';
+        @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-500;
+    }
+
+    .stat-card:hover {
+        @apply scale-105;
+        box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
+    }
+
+    /* Light Mode Stat Card */
+    .light .stat-card:hover {
+        box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.15);
+    }
+
+    /* Book Card */
+    .book-card {
+        @apply relative overflow-hidden glass-card transition-all duration-500;
+    }
+
+    .book-card::before {
+        content: '';
+        @apply absolute inset-0 bg-gradient-to-t from-purple-900/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 z-10 pointer-events-none;
+    }
+
+    .book-card:hover::before {
+        @apply opacity-100;
+    }
+
+    .book-card:hover {
+        @apply -translate-y-3;
+        box-shadow: 0 25px 50px -12px rgba(168, 85, 247, 0.25);
+    }
+
+    .book-card img {
+        @apply transition-transform duration-700;
+    }
+
+    .book-card:hover img {
+        @apply scale-110;
+    }
+
+    /* Light Mode Book Card */
+    .light .book-card::before {
+        @apply bg-gradient-to-t from-purple-100/60 via-transparent to-transparent;
+    }
+
+    .light .book-card:hover {
+        box-shadow: 0 25px 50px -12px rgba(168, 85, 247, 0.15);
+    }
+
+    /* Loading Animation */
+    .loader {
+        @apply w-12 h-12 border-4 border-white/20 border-t-purple-500 rounded-full animate-spin;
+    }
+
+    /* Ripple Effect */
+    .ripple-effect {
+        @apply relative overflow-hidden;
+    }
+
+    .ripple-effect::after {
+        content: '';
+        @apply absolute inset-0 pointer-events-none;
+        background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+        transform: scale(0);
+        opacity: 0;
+        transition: transform 0.5s, opacity 0.5s;
+    }
+
+    .ripple-effect:active::after {
+        transform: scale(4);
+        opacity: 1;
+        transition: 0s;
+    }
+
+    /* Tooltip */
+    .tooltip {
+        @apply relative;
+    }
+
+    .tooltip::before {
+        content: attr(data-tooltip);
+        @apply absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-navy-700 text-white text-sm rounded-lg opacity-0 invisible transition-all duration-300 whitespace-nowrap;
+    }
+
+    .tooltip:hover::before {
+        @apply opacity-100 visible;
+    }
+
+    /* Skeleton Loading */
+    .skeleton {
+        @apply bg-white/10 rounded animate-pulse;
+    }
+
+    /* Notification */
+    .notification {
+        @apply fixed top-4 right-4 z-50 glass-card p-4 animate-slide-left;
+    }
+
+    /* Page Transitions */
+    .page-enter {
+        @apply opacity-0 translate-y-4;
+    }
+
+    .page-enter-active {
+        @apply opacity-100 translate-y-0 transition-all duration-500;
+    }
+
+    /* Light Mode Footer */
+    .light footer {
+        @apply border-slate-200;
+    }
+
+    /* Light Mode Select Options */
+    .light select option {
+        background-color: #ffffff;
+        color: #1e293b;
+    }
+
+    .light select option:hover,
+    .light select option:focus,
+    .light select option:checked {
+        background-color: #f1f5f9;
+        color: #1e293b;
+    }
+}
+
+@layer utilities {
+    .animate-delay-100 { animation-delay: 100ms; }
+    .animate-delay-200 { animation-delay: 200ms; }
+    .animate-delay-300 { animation-delay: 300ms; }
+    .animate-delay-400 { animation-delay: 400ms; }
+    .animate-delay-500 { animation-delay: 500ms; }
+    .animate-delay-700 { animation-delay: 700ms; }
+    .animate-delay-1000 { animation-delay: 1000ms; }
+
+    .hover-lift {
+        @apply transition-transform duration-300;
+    }
+
+    .hover-lift:hover {
+        @apply -translate-y-1;
+    }
+
+    .text-gradient {
+        @apply bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent;
+    }
+
+    /* Parallax */
+    .parallax {
+        transform: translateZ(0);
+        will-change: transform;
+    }
+
+    /* Smooth Appear */
+    .appear {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .appear.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Animations */
+@keyframes gradient-xy {
+    0%, 100% {
+        background-size: 400% 400%;
+        background-position: left center;
+    }
+    50% {
+        background-size: 200% 200%;
+        background-position: right center;
+    }
+}
+
+@keyframes blob {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(20px, -30px) scale(1.1);
+    }
+    50% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+    75% {
+        transform: translate(30px, 30px) scale(1.05);
+    }
+}
+
+.animate-blob {
+    animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+/* Magnetic Button Effect */
+.magnetic-btn {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Neon Effect */
+.neon-text {
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #a855f7,
+        0 0 30px #a855f7,
+        0 0 40px #a855f7;
+}
+
+.neon-border {
+    box-shadow: 
+        0 0 5px rgba(168, 85, 247, 0.5),
+        0 0 10px rgba(168, 85, 247, 0.3),
+        inset 0 0 5px rgba(168, 85, 247, 0.2);
+}
+
+/* Aurora Effect */
+.aurora {
+    background: linear-gradient(
+        45deg,
+        rgba(99, 102, 241, 0.3) 0%,
+        rgba(168, 85, 247, 0.3) 25%,
+        rgba(236, 72, 153, 0.3) 50%,
+        rgba(168, 85, 247, 0.3) 75%,
+        rgba(99, 102, 241, 0.3) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+/* Spotlight Effect */
+.spotlight {
+    background: radial-gradient(
+        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(168, 85, 247, 0.15),
+        transparent 40%
+    );
+}

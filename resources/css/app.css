@@ -66,39 +66,39 @@
     }
 
     ::-webkit-scrollbar-thumb {
-        @apply bg-gradient-to-b from-purple-600 to-indigo-600 rounded-full;
+        @apply bg-purple-600 rounded-full;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-        @apply from-purple-500 to-indigo-500;
+        @apply bg-purple-500;
     }
 }
 
 @layer components {
     /* Glass Effect - Dark Mode */
     .glass {
-        @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
+        @apply bg-slate-800/90 backdrop-blur-md border border-slate-700/50 shadow-xl;
     }
 
     .glass-dark {
-        @apply bg-navy-800/80 backdrop-blur-xl border border-white/5 shadow-2xl;
+        @apply bg-slate-800/95 backdrop-blur-md border border-slate-700/50 shadow-xl;
     }
 
     .glass-card {
-        @apply bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl;
+        @apply bg-slate-800/90 backdrop-blur-md border border-slate-700/50 rounded-2xl shadow-xl;
     }
 
     /* Light Mode Glass Effects */
     .light .glass {
-        @apply bg-white/80 backdrop-blur-xl border border-slate-200 shadow-lg;
+        @apply bg-white backdrop-blur-md border border-slate-200 shadow-md;
     }
 
     .light .glass-dark {
-        @apply bg-white/90 backdrop-blur-xl border border-slate-200 shadow-lg;
+        @apply bg-white backdrop-blur-md border border-slate-200 shadow-md;
     }
 
     .light .glass-card {
-        @apply bg-white/90 backdrop-blur-xl border border-slate-200 rounded-2xl shadow-lg;
+        @apply bg-white backdrop-blur-md border border-slate-200 rounded-2xl shadow-md;
     }
 
     /* Gradient Backgrounds */
@@ -113,16 +113,11 @@
     }
 
     .gradient-text {
-        @apply bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
+        @apply text-purple-500;
     }
 
     .gradient-text-animated {
-        background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899, #a855f7, #6366f1);
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: gradient 3s linear infinite;
+        @apply text-purple-500;
     }
 
     /* Light Mode Background Mesh */
@@ -196,51 +191,36 @@
 
     /* Buttons */
     .btn-primary {
-        @apply relative overflow-hidden px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl font-semibold text-white shadow-lg shadow-purple-500/30 transition-all duration-300;
+        @apply px-8 py-3 bg-purple-600 rounded-xl font-semibold text-white shadow-lg transition-all duration-300;
     }
 
     .btn-primary:hover {
-        @apply shadow-xl shadow-purple-500/50 scale-105;
-        background: linear-gradient(90deg, #4f46e5, #9333ea, #4f46e5);
-        background-size: 200% auto;
-        animation: gradient 2s linear infinite;
-    }
-
-    .btn-primary::before {
-        content: '';
-        @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full;
-        transition: transform 0.5s;
-    }
-
-    .btn-primary:hover::before {
-        @apply translate-x-full;
+        @apply bg-purple-700 shadow-xl scale-105;
     }
 
     .btn-secondary {
-        @apply px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl font-semibold text-white transition-all duration-300;
+        @apply px-8 py-3 bg-slate-700 border border-slate-600 rounded-xl font-semibold text-white transition-all duration-300;
     }
 
     .btn-secondary:hover {
-        @apply bg-white/20 border-white/40 scale-105 shadow-lg shadow-white/10;
+        @apply bg-slate-600 border-slate-500 scale-105 shadow-lg;
     }
 
     /* Light Mode Buttons */
     .light .btn-secondary {
-        @apply bg-slate-100 border-slate-300 text-slate-700;
+        @apply bg-slate-200 border-slate-300 text-slate-700;
     }
 
     .light .btn-secondary:hover {
-        @apply bg-slate-200 border-slate-400 shadow-lg shadow-slate-200;
+        @apply bg-slate-300 border-slate-400 shadow-lg;
     }
 
     .btn-glow {
-        @apply relative px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl font-semibold text-white;
-        box-shadow: 0 0 20px rgba(99, 102, 241, 0.5), 0 0 40px rgba(168, 85, 247, 0.3);
-        transition: all 0.3s ease;
+        @apply px-8 py-3 bg-purple-600 rounded-xl font-semibold text-white shadow-lg transition-all duration-300;
     }
 
     .btn-glow:hover {
-        box-shadow: 0 0 30px rgba(99, 102, 241, 0.7), 0 0 60px rgba(168, 85, 247, 0.5), 0 0 80px rgba(168, 85, 247, 0.3);
+        @apply bg-purple-700 shadow-xl;
         transform: translateY(-2px);
     }
 
@@ -326,12 +306,12 @@
 
     /* Navigation */
     .nav-link {
-        @apply relative px-4 py-2 text-white/70 font-medium transition-all duration-300;
+        @apply relative px-4 py-2 text-slate-400 font-medium transition-all duration-300;
     }
 
     .nav-link::after {
         content: '';
-        @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300;
+        @apply absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 transition-all duration-300;
     }
 
     .nav-link:hover {
@@ -475,17 +455,16 @@
 
     .stat-card::before {
         content: '';
-        @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-500;
+        @apply absolute top-0 left-0 w-full h-1 bg-purple-500;
     }
 
     .stat-card:hover {
-        @apply scale-105;
-        box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
+        @apply scale-105 shadow-xl;
     }
 
     /* Light Mode Stat Card */
     .light .stat-card:hover {
-        box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.15);
+        @apply shadow-lg;
     }
 
     /* Book Card */
@@ -493,18 +472,8 @@
         @apply relative overflow-hidden glass-card transition-all duration-500;
     }
 
-    .book-card::before {
-        content: '';
-        @apply absolute inset-0 bg-gradient-to-t from-purple-900/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 z-10 pointer-events-none;
-    }
-
-    .book-card:hover::before {
-        @apply opacity-100;
-    }
-
     .book-card:hover {
-        @apply -translate-y-3;
-        box-shadow: 0 25px 50px -12px rgba(168, 85, 247, 0.25);
+        @apply -translate-y-3 shadow-xl;
     }
 
     .book-card img {
@@ -516,12 +485,8 @@
     }
 
     /* Light Mode Book Card */
-    .light .book-card::before {
-        @apply bg-gradient-to-t from-purple-100/60 via-transparent to-transparent;
-    }
-
     .light .book-card:hover {
-        box-shadow: 0 25px 50px -12px rgba(168, 85, 247, 0.15);
+        @apply shadow-lg;
     }
 
     /* Loading Animation */
@@ -619,7 +584,7 @@
     }
 
     .text-gradient {
-        @apply bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent;
+        @apply text-purple-500;
     }
 
     /* Parallax */

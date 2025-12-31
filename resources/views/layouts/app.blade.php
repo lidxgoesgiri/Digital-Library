@@ -23,13 +23,8 @@
       :class="{ 'light': !darkMode }"
       x-init="if(localStorage.getItem('theme') === 'light') { document.body.classList.add('light') }"
       @theme-changed.window="darkMode = localStorage.getItem('theme') !== 'light'">
-    <!-- Background Effects -->
-    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none transition-all duration-500">
-        <!-- Dark mode background -->
-        <div class="absolute inset-0 bg-mesh opacity-50 transition-opacity duration-500" :class="{ 'opacity-20': !darkMode }"></div>
-        <div class="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl transition-all duration-500" :class="darkMode ? 'bg-purple-600/20' : 'bg-purple-400/10'"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl transition-all duration-500" :class="darkMode ? 'bg-indigo-600/20' : 'bg-indigo-400/10'"></div>
-    </div>
+    <!-- Background -->
+    <div class="fixed inset-0 -z-10 transition-all duration-500" :class="darkMode ? 'bg-slate-900' : 'bg-slate-50'"></div>
 
     <div class="min-h-screen">
         @include('layouts.navigation')

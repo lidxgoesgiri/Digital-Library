@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <div>
-                <h2 class="text-2xl font-bold gradient-text">{{ __('Book Detail') }}</h2>
+                <h2 class="text-2xl font-bold text-purple-600">{{ __('Book Detail') }}</h2>
                 <p class="text-white/50 mt-1">{{ __('Book Details') }}</p>
             </div>
             <a href="{{ route('user.books.index') }}" class="btn-secondary">
@@ -50,13 +50,13 @@
                                          alt="{{ $book->title }}" 
                                          class="h-80 w-56 object-cover rounded-2xl shadow-2xl shadow-purple-500/20 group-hover:scale-105 transition-transform duration-500">
                                 @else
-                                    <div class="h-80 w-56 bg-gradient-to-br from-indigo-500/30 to-purple-500/30 rounded-2xl flex items-center justify-center">
+                                    <div class="h-80 w-56 bg-purple-600/30 rounded-2xl flex items-center justify-center">
                                         <svg class="w-20 h-20 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                                         </svg>
                                     </div>
                                 @endif
-                                <div class="absolute -inset-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity -z-10"></div>
+                                <div class="absolute -inset-2 bg-purple-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity -z-10"></div>
                             </div>
                         </div>
 
@@ -104,14 +104,14 @@
                                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                                             <label class="relative cursor-pointer group">
                                                 <input type="radio" name="loan_duration_type" value="7" class="peer sr-only loan-duration-radio" required onclick="selectPresetDuration(7)">
-                                                <div class="glass p-4 rounded-xl text-center transition-all duration-300 peer-checked:bg-gradient-to-br peer-checked:from-indigo-500/30 peer-checked:to-purple-500/30 peer-checked:border-purple-500 border-2 border-transparent hover:border-purple-500/50 h-[88px] flex flex-col items-center justify-center">
+                                                <div class="glass p-4 rounded-xl text-center transition-all duration-300 peer-checked:peer-checked:bg-purple-600/20 peer-checked:border-purple-500 border-2 border-transparent hover:border-purple-500/50 h-[88px] flex flex-col items-center justify-center">
                                                     <div class="text-2xl font-bold text-white mb-1">7</div>
                                                     <div class="text-sm text-white/50">{{ __('Days') }}</div>
                                                 </div>
                                             </label>
                                             <label class="relative cursor-pointer group">
                                                 <input type="radio" name="loan_duration_type" value="14" class="peer sr-only loan-duration-radio" checked required onclick="selectPresetDuration(14)">
-                                                <div class="glass p-4 rounded-xl text-center transition-all duration-300 peer-checked:bg-gradient-to-br peer-checked:from-indigo-500/30 peer-checked:to-purple-500/30 peer-checked:border-purple-500 border-2 border-transparent hover:border-purple-500/50 h-[88px] flex flex-col items-center justify-center">
+                                                <div class="glass p-4 rounded-xl text-center transition-all duration-300 peer-checked:peer-checked:bg-purple-600/20 peer-checked:border-purple-500 border-2 border-transparent hover:border-purple-500/50 h-[88px] flex flex-col items-center justify-center">
                                                     <div class="text-2xl font-bold text-white mb-1">14</div>
                                                     <div class="text-sm text-white/50">{{ __('Days') }}</div>
                                                     <div class="text-xs text-purple-400 mt-1">{{ __('Default') }}</div>
@@ -119,14 +119,14 @@
                                             </label>
                                             <label class="relative cursor-pointer group">
                                                 <input type="radio" name="loan_duration_type" value="21" class="peer sr-only loan-duration-radio" required onclick="selectPresetDuration(21)">
-                                                <div class="glass p-4 rounded-xl text-center transition-all duration-300 peer-checked:bg-gradient-to-br peer-checked:from-indigo-500/30 peer-checked:to-purple-500/30 peer-checked:border-purple-500 border-2 border-transparent hover:border-purple-500/50 h-[88px] flex flex-col items-center justify-center">
+                                                <div class="glass p-4 rounded-xl text-center transition-all duration-300 peer-checked:peer-checked:bg-purple-600/20 peer-checked:border-purple-500 border-2 border-transparent hover:border-purple-500/50 h-[88px] flex flex-col items-center justify-center">
                                                     <div class="text-2xl font-bold text-white mb-1">21</div>
                                                     <div class="text-sm text-white/50">{{ __('Days') }}</div>
                                                 </div>
                                             </label>
                                             <label class="relative cursor-pointer group">
                                                 <input type="radio" name="loan_duration_type" value="custom" class="peer sr-only loan-duration-radio" required onclick="selectCustomDuration()">
-                                                <div class="glass p-4 rounded-xl text-center transition-all duration-300 peer-checked:bg-gradient-to-br peer-checked:from-indigo-500/30 peer-checked:to-purple-500/30 peer-checked:border-purple-500 border-2 border-transparent hover:border-purple-500/50 h-[88px] flex flex-col items-center justify-center">
+                                                <div class="glass p-4 rounded-xl text-center transition-all duration-300 peer-checked:peer-checked:bg-purple-600/20 peer-checked:border-purple-500 border-2 border-transparent hover:border-purple-500/50 h-[88px] flex flex-col items-center justify-center">
                                                     <div class="flex items-center justify-center w-8 h-8 mb-1">
                                                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>

@@ -3,12 +3,12 @@
         <div class="flex justify-between h-16">
             <div class="flex items-center">
                 <a href="{{ route('dashboard') }}" class="flex items-center space-x-3 group">
-                    <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300">
+                    <div class="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                         </svg>
                     </div>
-                    <span class="text-lg font-bold gradient-text hidden sm:block">{{ __('Digital Library') }}</span>
+                    <span class="text-lg font-bold text-purple-600 hidden sm:block">{{ __('Digital Library') }}</span>
                 </a>
 
                 <div class="hidden md:flex items-center ml-10 space-x-1">
@@ -79,7 +79,7 @@
                 <div class="relative" @click.away="userMenu = false">
                     <button @click="userMenu = !userMenu" 
                             class="flex items-center space-x-3 glass-card px-4 py-2 rounded-xl hover:bg-white/10 transition-all duration-300">
-                        <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
                             <span class="text-sm font-bold">{{ substr(Auth::user()->name, 0, 1) }}</span>
                         </div>
                         <div class="text-left hidden lg:block">
@@ -197,7 +197,7 @@
 
             <div class="border-t border-white/10 pt-4 mt-4">
                 <div class="flex items-center space-x-3 px-4 py-2 mb-2">
-                    <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                    <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
                         <span class="font-bold">{{ substr(Auth::user()->name, 0, 1) }}</span>
                     </div>
                     <div>

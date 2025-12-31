@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <div>
-                <h2 class="text-2xl font-bold gradient-text">{{ __('Add New Book') }}</h2>
+                <h2 class="text-2xl font-bold text-purple-600">{{ __('Add New Book') }}</h2>
                 <p class="text-white/50 mt-1">{{ __('Manage library book collection') }}</p>
             </div>
             <a href="{{ route('admin.books.index') }}" class="btn-secondary">

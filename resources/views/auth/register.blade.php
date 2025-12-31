@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="text-center mb-8">
-        <h2 class="text-2xl font-bold gradient-text">{{ __('Create New Account') }}</h2>
+        <h2 class="text-2xl font-bold text-purple-600">{{ __('Create New Account') }}</h2>
         <p class="text-white/50 mt-2">{{ __('Join and start exploring thousands of books') }}</p>
     </div>
 

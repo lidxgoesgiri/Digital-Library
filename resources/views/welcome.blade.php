@@ -57,14 +57,14 @@
             <div class="flex justify-between items-center">
                 <a href="/" class="flex items-center space-x-3 group">
                     <div class="relative">
-                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                        <div class="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                             </svg>
                         </div>
-                        <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                        <div class="absolute -inset-1 bg-purple-500 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity"></div>
                     </div>
-                    <span class="text-2xl font-bold gradient-text-animated">{{ __('Digital Library') }}</span>
+                    <span class="text-2xl font-bold text-purple-600-animated">{{ __('Digital Library') }}</span>
                 </a>
 
                 <div class="hidden md:flex items-center space-x-8">
@@ -138,7 +138,7 @@
                 @else
                     <a href="{{ route('login') }}" class="block py-3 px-4 rounded-xl hover:bg-white/10 transition">{{ __('Login') }}</a>
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="block py-3 px-4 mt-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl text-center">{{ __('Register Now') }}</a>
+                        <a href="{{ route('register') }}" class="block py-3 px-4 mt-2 bg-purple-600 rounded-xl text-center">{{ __('Register Now') }}</a>
                     @endif
                 @endauth
             @endif
@@ -156,7 +156,7 @@
 
                 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
                     <span class="block animate-fade-in-up">{{ __('Explore the World of') }}</span>
-                    <span class="block gradient-text-animated animate-fade-in-up animate-delay-200">{{ __('Knowledge') }}</span>
+                    <span class="block text-purple-600-animated animate-fade-in-up animate-delay-200">{{ __('Knowledge') }}</span>
                     <span class="block text-3xl md:text-4xl lg:text-5xl font-medium text-white/60 mt-4 animate-fade-in-up animate-delay-400">{{ __('Without Limits') }}</span>
                 </h1>
 
@@ -191,7 +191,7 @@
 
                 <div class="grid grid-cols-3 gap-8 max-w-3xl mx-auto mt-20 animate-fade-in-up animate-delay-1000">
                     <div class="text-center">
-                        <div class="text-4xl md:text-5xl font-bold gradient-text" x-data="{ count: 0 }" x-init="
+                        <div class="text-4xl md:text-5xl font-bold text-purple-600" x-data="{ count: 0 }" x-init="
                             let target = 1000;
                             let interval = setInterval(() => {
                                 if (count < target) count += Math.ceil(target / 50);
@@ -201,7 +201,7 @@
                         <div class="text-white/50 mt-2">{{ __('Book Collection') }}</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-4xl md:text-5xl font-bold gradient-text" x-data="{ count: 0 }" x-init="
+                        <div class="text-4xl md:text-5xl font-bold text-purple-600" x-data="{ count: 0 }" x-init="
                             let target = 500;
                             let interval = setInterval(() => {
                                 if (count < target) count += Math.ceil(target / 50);
@@ -211,7 +211,7 @@
                         <div class="text-white/50 mt-2">{{ __('Active Members') }}</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-4xl md:text-5xl font-bold gradient-text" x-data="{ count: 0 }" x-init="
+                        <div class="text-4xl md:text-5xl font-bold text-purple-600" x-data="{ count: 0 }" x-init="
                             let target = 50;
                             let interval = setInterval(() => {
                                 if (count < target) count += 1;
@@ -246,79 +246,79 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="glass-card p-8 card-hover group" x-data="{ hover: false }" @mouseenter="hover = true" @mouseleave="hover = false">
                     <div class="relative mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                             </svg>
                         </div>
-                        <div class="absolute -inset-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+                        <div class="absolute -inset-2 bg-purple-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 group-hover:gradient-text transition-all duration-300">{{ __('Complete Collection') }}</h3>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-purple-600 transition-all duration-300">{{ __('Complete Collection') }}</h3>
                     <p class="text-white/60">{{ __('Thousands of books from various categories are available for you to access anytime and anywhere.') }}</p>
                 </div>
 
                 <div class="glass-card p-8 card-hover group">
                     <div class="relative mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <div class="w-16 h-16 bg-pink-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </div>
-                        <div class="absolute -inset-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+                        <div class="absolute -inset-2 bg-pink-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 group-hover:gradient-text transition-all duration-300">{{ __('Fast Borrowing') }}</h3>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-purple-600 transition-all duration-300">{{ __('Fast Borrowing') }}</h3>
                     <p class="text-white/60">{{ __('Super fast borrowing process with just one click. No queuing, no hassle.') }}</p>
                 </div>
 
                 <div class="glass-card p-8 card-hover group">
                     <div class="relative mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <div class="w-16 h-16 bg-emerald-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                             </svg>
                         </div>
-                        <div class="absolute -inset-2 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+                        <div class="absolute -inset-2 bg-emerald-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 group-hover:gradient-text transition-all duration-300">{{ __('Safe & Trusted') }}</h3>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-purple-600 transition-all duration-300">{{ __('Safe & Trusted') }}</h3>
                     <p class="text-white/60">{{ __('Your data is protected with high-level security system. Privacy guaranteed.') }}</p>
                 </div>
 
                 <div class="glass-card p-8 card-hover group">
                     <div class="relative mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <div class="w-16 h-16 bg-orange-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
                         </div>
-                        <div class="absolute -inset-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+                        <div class="absolute -inset-2 bg-orange-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 group-hover:gradient-text transition-all duration-300">{{ __('Smart Search') }}</h3>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-purple-600 transition-all duration-300">{{ __('Smart Search') }}</h3>
                     <p class="text-white/60">{{ __("Find the book you're looking for with smart search feature and category filters.") }}</p>
                 </div>
 
                 <div class="glass-card p-8 card-hover group">
                     <div class="relative mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <div class="w-16 h-16 bg-cyan-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                             </svg>
                         </div>
-                        <div class="absolute -inset-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+                        <div class="absolute -inset-2 bg-cyan-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 group-hover:gradient-text transition-all duration-300">{{ __('Complete History') }}</h3>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-purple-600 transition-all duration-300">{{ __('Complete History') }}</h3>
                     <p class="text-white/60">{{ __('Track all your borrowing activities with neatly stored history.') }}</p>
                 </div>
 
                 <div class="glass-card p-8 card-hover group">
                     <div class="relative mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <div class="w-16 h-16 bg-violet-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                             </svg>
                         </div>
-                        <div class="absolute -inset-2 bg-gradient-to-r from-violet-500 to-purple-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+                        <div class="absolute -inset-2 bg-violet-500 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 group-hover:gradient-text transition-all duration-300">{{ __('Responsive Design') }}</h3>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-purple-600 transition-all duration-300">{{ __('Responsive Design') }}</h3>
                     <p class="text-white/60">{{ __('Access the library from any device with always optimal display.') }}</p>
                 </div>
             </div>
@@ -334,7 +334,7 @@
                 
                 <div class="relative z-10">
                     <h2 class="text-3xl md:text-5xl font-bold mb-6">
-                        {{ __('Ready to Start an') }} <span class="gradient-text">{{ __('Adventure?') }}</span>
+                        {{ __('Ready to Start an') }} <span class="text-purple-600">{{ __('Adventure?') }}</span>
                     </h2>
                     <p class="text-white/60 text-lg mb-10 max-w-2xl mx-auto">
                         {{ __('Join thousands of other readers and explore the world of limitless knowledge.') }}
@@ -358,7 +358,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div class="md:col-span-2">
                     <a href="/" class="flex items-center space-x-3 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
+                        <div class="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center">
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                             </svg>
@@ -432,7 +432,7 @@
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
         @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
-        class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/50 transition-all duration-300 hover:-translate-y-1 z-50"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/50 transition-all duration-300 hover:-translate-y-1 z-50"
     >
         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>

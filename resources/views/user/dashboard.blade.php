@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <div>
-                <h2 class="text-2xl font-bold">{{ __('Welcome') }}, <span class="gradient-text">{{ auth()->user()->name }}!</span></h2>
+                <h2 class="text-2xl font-bold">{{ __('Welcome') }}, <span class="text-purple-600">{{ auth()->user()->name }}!</span></h2>
                 <p class="text-white/50 mt-1">{{ __('Explore the collection and start reading') }}</p>
             </div>
             <div class="hidden md:flex items-center space-x-3">
@@ -47,9 +47,9 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-white/50 text-sm font-medium">{{ __('Books Currently Borrowed') }}</p>
-                            <p class="text-4xl font-bold gradient-text mt-2">{{ $activeBorrowings->count() }}</p>
+                            <p class="text-4xl font-bold text-purple-600 mt-2">{{ $activeBorrowings->count() }}</p>
                         </div>
-                        <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <div class="w-14 h-14 bg-purple-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                             </svg>
@@ -63,7 +63,7 @@
                             <p class="text-white/50 text-sm font-medium">{{ __('Total Returned') }}</p>
                             <p class="text-4xl font-bold text-emerald-400 mt-2">{{ $returnedCount }}</p>
                         </div>
-                        <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <div class="w-14 h-14 bg-emerald-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
@@ -86,7 +86,7 @@
                                 @if($borrowing->book->cover_image)
                                     <img src="{{ asset('storage/' . $borrowing->book->cover_image) }}" alt="{{ $borrowing->book->title }}" class="h-24 w-16 object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform duration-300">
                                 @else
-                                    <div class="h-24 w-16 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-lg flex items-center justify-center">
+                                    <div class="h-24 w-16 bg-slate-700/50 rounded-lg flex items-center justify-center">
                                         <svg class="w-6 h-6 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                                         </svg>
@@ -136,7 +136,7 @@
                                 @if($book->cover_image)
                                     <img src="{{ asset('storage/' . $book->cover_image) }}" alt="{{ $book->title }}" class="w-full h-full object-cover">
                                 @else
-                                    <div class="w-full h-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+                                    <div class="w-full h-full bg-slate-700/50 flex items-center justify-center">
                                         <svg class="w-10 h-10 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                                         </svg>
@@ -144,7 +144,7 @@
                                 @endif
                             </div>
                             <div class="p-3">
-                                <h4 class="font-medium text-sm truncate group-hover:gradient-text transition-all">{{ $book->title }}</h4>
+                                <h4 class="font-medium text-sm truncate group-hover:text-purple-600 transition-all">{{ $book->title }}</h4>
                                 <p class="text-xs text-white/50 truncate">{{ $book->author }}</p>
                             </div>
                         </a>

@@ -42,6 +42,6 @@
     </svg>
 
     <!-- Glow effect -->
-    <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" x-show="darkMode"></div>
-    <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" x-show="!darkMode"></div>
+    <div class="absolute inset-0 rounded-xl bg-yellow-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" x-show="darkMode"></div>
+    <div class="absolute inset-0 rounded-xl bg-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" x-show="!darkMode"></div>
 </button>

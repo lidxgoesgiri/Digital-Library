@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <div>
-                <h2 class="text-2xl font-bold gradient-text">{{ __('My Profile') }}</h2>
+                <h2 class="text-2xl font-bold text-purple-600">{{ __('My Profile') }}</h2>
                 <p class="text-white/50 mt-1">{{ __("Update your account's profile information and email address") }}</p>
             </div>
         </div>

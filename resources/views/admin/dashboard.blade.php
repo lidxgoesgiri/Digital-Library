@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <div>
-                <h2 class="text-2xl font-bold gradient-text">{{ __('Admin Dashboard') }}</h2>
+                <h2 class="text-2xl font-bold text-purple-600">{{ __('Admin Dashboard') }}</h2>
                 <p class="text-white/50 mt-1">{{ __('Welcome back') }}, {{ auth()->user()->name }}!</p>
             </div>
             <div class="flex items-center space-x-2">
@@ -32,9 +32,9 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-white/50 text-sm font-medium">{{ __('Total Books') }}</p>
-                            <p class="text-4xl font-bold gradient-text mt-2">{{ $totalBooks }}</p>
+                            <p class="text-4xl font-bold text-purple-600 mt-2">{{ $totalBooks }}</p>
                         </div>
-                        <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <div class="w-14 h-14 bg-purple-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                             </svg>
@@ -57,7 +57,7 @@
                             <p class="text-white/50 text-sm font-medium">{{ __('Being Borrowed') }}</p>
                             <p class="text-4xl font-bold text-yellow-400 mt-2">{{ $totalBorrowings }}</p>
                         </div>
-                        <div class="w-14 h-14 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <div class="w-14 h-14 bg-yellow-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
@@ -80,7 +80,7 @@
                             <p class="text-white/50 text-sm font-medium">{{ __('Returned') }}</p>
                             <p class="text-4xl font-bold text-emerald-400 mt-2">{{ $totalReturned }}</p>
                         </div>
-                        <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                        <div class="w-14 h-14 bg-emerald-600 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
@@ -130,7 +130,7 @@
                                 <tr class="group">
                                     <td>
                                         <div class="flex items-center space-x-3">
-                                            <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center text-sm font-bold">
+                                            <div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-sm font-bold">
                                                 {{ substr($borrowing->user->name, 0, 1) }}
                                             </div>
                                             <span>{{ $borrowing->user->name }}</span>

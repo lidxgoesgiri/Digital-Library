@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="text-center mb-8">
-        <h2 class="text-2xl font-bold gradient-text">{{ __('Welcome Back') }}</h2>
+        <h2 class="text-2xl font-bold text-purple-600">{{ __('Welcome Back') }}</h2>
         <p class="text-white/50 mt-2">{{ __('Login to your account to continue') }}</p>
     </div>
 

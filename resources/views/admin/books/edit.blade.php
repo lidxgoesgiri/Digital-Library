@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <div>
-                <h2 class="text-2xl font-bold gradient-text">Edit Buku</h2>
+                <h2 class="text-2xl font-bold text-purple-600">Edit Buku</h2>
                 <p class="text-white/50 mt-1">Perbarui informasi buku</p>
             </div>
             <a href="{{ route('admin.books.index') }}" class="btn-secondary">

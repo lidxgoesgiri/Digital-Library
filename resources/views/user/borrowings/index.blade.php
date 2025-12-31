@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <div>
-                <h2 class="text-2xl font-bold gradient-text">{{ __('My Borrowings') }}</h2>
+                <h2 class="text-2xl font-bold text-purple-600">{{ __('My Borrowings') }}</h2>
                 <p class="text-white/50 mt-1">{{ __('Track your book borrowings') }}</p>
             </div>
             <a href="{{ route('user.books.index') }}" class="btn-primary hidden md:flex">
@@ -42,7 +42,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                 <div class="glass-card p-4 flex items-center space-x-4 animate-fade-in-up" style="animation-delay: 100ms">
-                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center">
+                    <div class="w-12 h-12 bg-yellow-600 rounded-xl flex items-center justify-center">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="glass-card p-4 flex items-center space-x-4 animate-fade-in-up" style="animation-delay: 200ms">
-                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center">
+                    <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
@@ -64,14 +64,14 @@
                     </div>
                 </div>
                 <div class="glass-card p-4 flex items-center space-x-4 animate-fade-in-up" style="animation-delay: 300ms">
-                    <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
+                    <div class="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                         </svg>
                     </div>
                     <div>
                         <p class="text-white/50 text-sm">{{ __('Borrowings') }}</p>
-                        <p class="text-2xl font-bold gradient-text">{{ $borrowings->total() }}</p>
+                        <p class="text-2xl font-bold text-purple-600">{{ $borrowings->total() }}</p>
                     </div>
                 </div>
             </div>
@@ -108,14 +108,14 @@
                                                      alt="{{ $borrowing->book->title }}" 
                                                      class="h-14 w-10 object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform duration-300">
                                             @else
-                                                <div class="h-14 w-10 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-lg flex items-center justify-center">
+                                                <div class="h-14 w-10 bg-slate-700/50 rounded-lg flex items-center justify-center">
                                                     <svg class="h-5 w-5 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                                                     </svg>
                                                 </div>
                                             @endif
                                             <div>
-                                                <div class="font-medium text-white group-hover:gradient-text transition-all">{{ Str::limit($borrowing->book->title, 25) }}</div>
+                                                <div class="font-medium text-white group-hover:text-purple-600 transition-all">{{ Str::limit($borrowing->book->title, 25) }}</div>
                                                 <div class="text-sm text-white/50">{{ $borrowing->book->author }}</div>
                                             </div>
                                         </div>
@@ -190,7 +190,7 @@
                                 <tr>
                                     <td colspan="7" class="text-center py-12">
                                         <div class="flex flex-col items-center">
-                                            <div class="w-20 h-20 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mb-4">
+                                            <div class="w-20 h-20 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-4">
                                                 <svg class="w-10 h-10 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                                                 </svg>

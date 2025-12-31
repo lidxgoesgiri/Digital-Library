@@ -5,7 +5,9 @@ Sistem denda otomatis untuk user yang terlambat mengembalikan buku pinjaman.
 
 ## 💰 Konfigurasi Denda
 - **Denda per hari**: Rp 1.000 (default)
-- **Masa pinjam**: 14 hari
+- **Masa pinjam**: 
+  - Preset: 7, 14 (default), atau 21 hari
+  - Custom: 1-30 hari (user dapat menentukan sendiri)
 - **Status**: Unpaid / Paid
 
 ## 📊 Struktur Database
@@ -19,8 +21,10 @@ fine_paid BOOLEAN DEFAULT false        -- Status pembayaran denda
 ## 🔄 Alur Kerja Sistem
 
 ### 1. **Peminjaman Buku**
-- User meminjam buku
-- `due_date` otomatis di-set 14 hari dari tanggal pinjam
+- User memilih durasi peminjaman:
+  - **Preset**: 7, 14, atau 21 hari
+  - **Custom**: 1-30 hari (input manual)
+- `due_date` otomatis di-set sesuai durasi yang dipilih
 - `status` = 'borrowed'
 - `fine_amount` = 0
 
@@ -167,8 +171,35 @@ crontab -e
 3. **fine_paid** belum ada fitur pembayaran (perlu implementasi payment gateway)
 4. **Real-time calculation** ditampilkan di UI untuk buku yang masih dipinjam dan terlambat
 
+## ✨ Fitur Custom Duration
+
+### Cara Menggunakan
+1. User membuka halaman detail buku
+2. Klik tombol "Pinjam Buku"
+3. Pilih durasi peminjaman:
+   - **7 Hari**: Peminjaman singkat
+   - **14 Hari**: Default (Recommended)
+   - **21 Hari**: Peminjaman lebih lama
+   - **Custom**: Input manual 1-30 hari
+4. Jika pilih "Custom", muncul input field untuk memasukkan jumlah hari
+5. Sistem akan menghitung `due_date` otomatis
+6. Peringatan denda Rp 1.000/hari ditampilkan di form
+
+### Validasi
+- **Minimal**: 1 hari
+- **Maksimal**: 30 hari
+- **Validasi Client-side**: JavaScript alert jika input tidak valid
+- **Validasi Server-side**: Laravel validation rules
+- **Error Handling**: Menampilkan error message jika validasi gagal
+
+### Teknologi
+- **Frontend**: Vanilla JavaScript untuk toggle custom input
+- **Backend**: Laravel Request Validation
+- **UI/UX**: Glass morphism design dengan animasi smooth
+
 ## 🔮 Fitur yang Bisa Ditambahkan
 
+- [x] Custom duration peminjaman (1-30 hari)
 - [ ] Payment Gateway untuk pembayaran denda
 - [ ] Email reminder sebelum due date
 - [ ] Push notification untuk peminjaman yang mendekati deadline

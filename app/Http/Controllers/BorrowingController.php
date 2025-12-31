@@ -15,8 +15,21 @@ class BorrowingController extends Controller
         return view('user.borrowings.index', compact('borrowings'));
     }
 
-    public function borrow(Book $book)
+    public function borrow(Request $request, Book $book)
     {
+        $request->validate([
+            'loan_duration' => 'required|integer|min:1|max:30',
+            'custom_duration' => 'nullable|integer|min:1|max:30',
+        ], [
+            'loan_duration.required' => 'Durasi peminjaman harus dipilih.',
+            'loan_duration.integer' => 'Durasi peminjaman tidak valid.',
+            'loan_duration.min' => 'Durasi peminjaman minimal 1 hari.',
+            'loan_duration.max' => 'Durasi peminjaman maksimal 30 hari.',
+            'custom_duration.integer' => 'Durasi custom tidak valid.',
+            'custom_duration.min' => 'Durasi custom minimal 1 hari.',
+            'custom_duration.max' => 'Durasi custom maksimal 30 hari.',
+        ]);
+
         if (!$book->isAvailable()) {
             return back()->with('error', 'Maaf, buku ini sedang tidak tersedia.');
         }
@@ -30,15 +43,23 @@ class BorrowingController extends Controller
             return back()->with('error', 'Anda sudah meminjam buku ini dan belum mengembalikannya.');
         }
 
+        $loanDuration = (int) $request->input('loan_duration');
+        
+        if ($loanDuration < 1 || $loanDuration > 30) {
+            return back()->withInput()->with('error', 'Durasi peminjaman harus antara 1-30 hari.');
+        }
+
+        $dueDate = Carbon::now()->addDays($loanDuration);
+
         Borrowing::create([
             'user_id' => auth()->id(),
             'book_id' => $book->id,
             'borrowed_at' => Carbon::now(),
-            'due_date' => Carbon::now()->addDays(14),
+            'due_date' => $dueDate,
             'status' => 'borrowed',
         ]);
 
-        return redirect()->route('user.borrowings.index')->with('success', 'Buku berhasil dipinjam! Harap kembalikan sebelum ' . Carbon::now()->addDays(14)->format('d M Y'));
+        return redirect()->route('user.borrowings.index')->with('success', 'Buku berhasil dipinjam untuk ' . $loanDuration . ' hari! Harap kembalikan sebelum ' . $dueDate->format('d M Y') . '. Keterlambatan akan dikenakan denda Rp 1.000/hari.');
     }
 
     public function returnBook(Borrowing $borrowing)

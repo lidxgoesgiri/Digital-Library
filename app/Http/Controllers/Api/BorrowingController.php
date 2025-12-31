@@ -81,16 +81,24 @@ class BorrowingController extends Controller
             ], 400);
         }
 
+        $fineAmount = $borrowing->calculateFine();
+
         $borrowing->update([
             'returned_at' => Carbon::now(),
             'status' => 'returned',
+            'fine_amount' => $fineAmount,
         ]);
 
         $borrowing->load('book');
 
+        $message = 'Buku berhasil dikembalikan!';
+        if ($fineAmount > 0) {
+            $message .= ' Anda terkena denda keterlambatan sebesar Rp ' . number_format($fineAmount, 0, ',', '.') . ' (' . $borrowing->due_date->diffInDays($borrowing->returned_at) . ' hari terlambat).';
+        }
+
         return response()->json([
             'success' => true,
-            'message' => 'Buku berhasil dikembalikan!',
+            'message' => $message,
             'data' => $borrowing
         ]);
     }

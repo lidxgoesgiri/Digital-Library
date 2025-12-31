@@ -41,6 +41,9 @@
     "Status": "Status",
     "Borrowed": "Dipinjam",
     "No borrowings yet": "Belum ada peminjaman",
+    "Fine": "Denda",
+    "Paid": "Lunas",
+    "Unpaid": "Belum Lunas",
     
     "Welcome": "Selamat Datang",
     "Explore the collection and start reading": "Jelajahi koleksi buku dan mulai membaca",

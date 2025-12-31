@@ -51,12 +51,20 @@ class BorrowingController extends Controller
             return back()->with('error', 'Buku ini sudah dikembalikan.');
         }
 
+        $fineAmount = $borrowing->calculateFine();
+
         $borrowing->update([
             'returned_at' => Carbon::now(),
             'status' => 'returned',
+            'fine_amount' => $fineAmount,
         ]);
 
-        return back()->with('success', 'Buku berhasil dikembalikan!');
+        $message = 'Buku berhasil dikembalikan!';
+        if ($fineAmount > 0) {
+            $message .= ' Anda terkena denda keterlambatan sebesar Rp ' . number_format($fineAmount, 0, ',', '.') . ' (' . $borrowing->due_date->diffInDays($borrowing->returned_at) . ' hari terlambat).';
+        }
+
+        return back()->with('success', $message);
     }
 
     public function dashboard()

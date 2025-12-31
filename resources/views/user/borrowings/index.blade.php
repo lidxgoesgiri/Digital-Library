@@ -94,6 +94,7 @@
                                 <th>{{ __('Due Date') }}</th>
                                 <th>{{ __('Return Date') }}</th>
                                 <th>{{ __('Status') }}</th>
+                                <th>{{ __('Fine') }}</th>
                                 <th>{{ __('Actions') }}</th>
                             </tr>
                         </thead>
@@ -153,6 +154,22 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if($borrowing->fine_amount > 0)
+                                            <div class="flex flex-col">
+                                                <span class="text-red-400 font-semibold">Rp {{ number_format($borrowing->fine_amount, 0, ',', '.') }}</span>
+                                                @if(!$borrowing->fine_paid && $borrowing->status === 'returned')
+                                                    <span class="text-xs text-red-400/70">{{ __('Unpaid') }}</span>
+                                                @elseif($borrowing->fine_paid)
+                                                    <span class="text-xs text-emerald-400">{{ __('Paid') }}</span>
+                                                @endif
+                                            </div>
+                                        @elseif($borrowing->status === 'borrowed' && $borrowing->due_date->isPast())
+                                            <span class="text-yellow-400">Rp {{ number_format($borrowing->calculateFine(), 0, ',', '.') }}</span>
+                                        @else
+                                            <span class="text-white/30">-</span>
+                                        @endif
+                                    </td>
+                                    <td>
                                         @if($borrowing->status === 'borrowed')
                                             <form action="{{ route('user.borrowings.return', $borrowing) }}" method="POST">
                                                 @csrf
@@ -171,7 +188,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="6" class="text-center py-12">
+                                    <td colspan="7" class="text-center py-12">
                                         <div class="flex flex-col items-center">
                                             <div class="w-20 h-20 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mb-4">
                                                 <svg class="w-10 h-10 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">

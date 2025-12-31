@@ -16,6 +16,8 @@ class Borrowing extends Model
         'due_date',
         'returned_at',
         'status',
+        'fine_amount',
+        'fine_paid',
     ];
 
     protected $casts = [
@@ -32,5 +34,29 @@ class Borrowing extends Model
     public function book()
     {
         return $this->belongsTo(Book::class);
+    }
+
+    public function isOverdue(): bool
+    {
+        return $this->status === 'borrowed' && $this->due_date->isPast();
+    }
+
+    public function getOverdueDays(): int
+    {
+        if (!$this->isOverdue()) {
+            return 0;
+        }
+        return $this->due_date->diffInDays(now());
+    }
+
+    public function calculateFine(int $finePerDay = 1000): float
+    {
+        $overdueDays = $this->getOverdueDays();
+        
+        if ($this->status === 'returned' && $this->returned_at && $this->returned_at->isAfter($this->due_date)) {
+            $overdueDays = $this->due_date->diffInDays($this->returned_at);
+        }
+        
+        return $overdueDays * $finePerDay;
     }
 }

@@ -109,7 +109,7 @@
                                                 </svg>
                                             </a>
                                             <form action="{{ route('admin.books.destroy', $book) }}" method="POST" class="inline" 
-                                                  onsubmit="return confirm('{{ __('Are you sure you want to delete your account?') }}')">
+                                                  onsubmit="return confirm('{{ __('Are you sure you want to delete this book?') }}')">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" 

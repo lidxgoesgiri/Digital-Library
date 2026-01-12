@@ -43,6 +43,16 @@ class BorrowingController extends Controller
             return back()->with('error', 'Anda sudah meminjam buku ini dan belum mengembalikannya.');
         }
 
+        // Check for unpaid fines
+        $hasUnpaidFines = Borrowing::where('user_id', auth()->id())
+            ->where('fine_amount', '>', 0)
+            ->where('fine_paid', false)
+            ->exists();
+
+        if ($hasUnpaidFines) {
+            return back()->with('error', 'Anda memiliki denda yang belum dibayar. Harap lunasi denda terlebih dahulu sebelum meminjam buku baru.');
+        }
+
         $loanDuration = (int) $request->input('loan_duration');
         
         if ($loanDuration < 1 || $loanDuration > 30) {

@@ -13,8 +13,8 @@
         }
     </script>
 </head>
-<body class="overflow-x-hidden transition-colors duration-300" 
-      x-data="{ 
+<body class="overflow-x-hidden transition-colors duration-300"
+      x-data="{
           mobileMenu: false,
           darkMode: localStorage.getItem('theme') !== 'light',
           toggleTheme() {
@@ -26,7 +26,7 @@
       }"
       x-init="if(localStorage.getItem('theme') === 'light') { document.body.classList.add('light') }"
       :class="{ 'light': !darkMode }">
-    
+
     <!-- Animated Background -->
     <div class="fixed inset-0 -z-10 overflow-hidden">
         <div class="absolute inset-0 bg-mesh transition-opacity duration-500" :class="darkMode ? 'opacity-100' : 'opacity-30'"></div>
@@ -49,7 +49,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" 
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
          x-data="{ scrolled: false }"
          @scroll.window="scrolled = (window.pageYOffset > 50)"
          :class="scrolled ? 'glass py-2' : 'py-4'">
@@ -69,18 +69,47 @@
 
                 <div class="hidden md:flex items-center space-x-8">
                     <x-language-switcher />
-                    
-                    <button @click="toggleTheme()" 
-                            class="relative p-2 rounded-xl glass hover:scale-110 transition-all duration-300 group"
-                            :title="darkMode ? '{{ __('Switch to Light Mode') }}' : '{{ __('Switch to Dark Mode') }}'">
-                        <svg x-show="darkMode" x-transition class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                        <svg x-show="!darkMode" x-transition x-cloak class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                        </svg>
-                    </button>
-                    
+
+                    <button @click="toggleTheme()"
+                    class="relative w-20 h-10 rounded-full backdrop-blur-md bg-white/20 dark:bg-black/30
+                    border border-white/30 shadow-lg transition-all duration-300">
+
+    <!-- ICON BACKGROUND -->
+    <div class="absolute inset-0 flex justify-between items-center px-3 text-gray-400">
+
+        <!-- Sun -->
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+
+        <!-- Moon -->
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </div>
+
+    <!-- GLASS KNOB -->
+    <div
+        class="absolute top-1 left-1 w-8 h-8 rounded-full
+               bg-white/70 backdrop-blur-xl shadow-md
+               flex items-center justify-center
+               transition-all duration-300"
+        :class="darkMode ? 'translate-x-10 bg-yellow-400/80' : 'translate-x-0'">
+
+        <!-- Icon inside knob -->
+        <svg x-show="darkMode" x-transition class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+
+        <svg x-show="!darkMode" x-transition x-cloak class="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+    </div>
+</button>
                     @if (Route::has('login'))
                         @auth
                             <a href="{{ url('/dashboard') }}" class="btn-primary">
@@ -99,8 +128,8 @@
 
                 <div class="flex items-center space-x-2 md:hidden">
                     <x-language-switcher />
-                    
-                    <button @click="toggleTheme()" 
+
+                    <button @click="toggleTheme()"
                             class="p-2 rounded-lg glass hover:bg-white/10 transition-colors"
                             :title="darkMode ? 'Light Mode' : 'Dark Mode'">
                         <svg x-show="darkMode" class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,7 +139,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                         </svg>
                     </button>
-                    
+
                     <button @click="mobileMenu = !mobileMenu" class="p-2 rounded-lg glass">
                         <svg x-show="!mobileMenu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -123,7 +152,7 @@
             </div>
         </div>
 
-        <div x-show="mobileMenu" 
+        <div x-show="mobileMenu"
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0 -translate-y-4"
              x-transition:enter-end="opacity-100 translate-y-0"
@@ -331,7 +360,7 @@
             <div class="glass-card p-12 md:p-16 text-center relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"></div>
                 <div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl"></div>
-                
+
                 <div class="relative z-10">
                     <h2 class="text-3xl md:text-5xl font-bold mb-6">
                         {{ __('Ready to Start an') }} <span class="text-purple-600">{{ __('Adventure?') }}</span>
@@ -421,7 +450,7 @@
         </div>
     </footer>
 
-    <button 
+    <button
         x-data="{ show: false }"
         @scroll.window="show = (window.pageYOffset > 500)"
         x-show="show"

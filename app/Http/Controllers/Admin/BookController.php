@@ -29,9 +29,9 @@ class BookController extends Controller
             'isbn' => 'nullable|string|max:20|unique:books',
             'description' => 'nullable|string',
             'cover_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'stock' => 'required|integer|min:1',
+            'stock' => 'required|integer|min:1|max:50',
             'category' => 'nullable|string|max:100',
-            'published_year' => 'nullable|integer|min:1000|max:' . date('Y'),
+            'published_year' => 'nullable|integer|min:1900|max:' . date('Y'),
         ]);
 
         if ($request->hasFile('cover_image')) {
@@ -62,9 +62,9 @@ class BookController extends Controller
             'isbn' => 'nullable|string|max:20|unique:books,isbn,' . $book->id,
             'description' => 'nullable|string',
             'cover_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'stock' => 'required|integer|min:1',
+            'stock' => 'required|integer|min:1|max:50',
             'category' => 'nullable|string|max:100',
-            'published_year' => 'nullable|integer|min:1000|max:' . date('Y'),
+            'published_year' => 'nullable|integer|min:1900|max:' . date('Y'),
         ]);
 
         if ($request->hasFile('cover_image')) {
